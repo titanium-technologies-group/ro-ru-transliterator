@@ -1,0 +1,77 @@
+package transliteration_test
+
+import (
+	"testing"
+	"strings"
+	"github.com/titanium-codes/ro-ru-transliterator/transliteration"
+)
+
+func TestTransliteration(t *testing.T) {
+	testWordTrasliteration(t, "Ada", "ада")
+	testWordTrasliteration(t, "Făcăeni", "фэкэени")
+	testWordTrasliteration(t, "Barbu", "Барбу")
+	testWordTrasliteration(t, "Cezar", "Чезар")
+	testWordTrasliteration(t, "Camil", "Камил")
+	testWordTrasliteration(t, "Mircea", "Мирча")
+	testWordTrasliteration(t, "Chișinău", "Кишинэу")
+	testWordTrasliteration(t, "Tecuci", "Текуч")
+	testWordTrasliteration(t, "Cioran", "Чоран")
+	testWordTrasliteration(t, "Ciurel", "Чурел")
+	testWordTrasliteration(t, "Dan", "Дан")
+	testWordTrasliteration(t, "Nicolae", "Николае")
+	testWordTrasliteration(t, "Băneasa", "Бэняса")
+	testWordTrasliteration(t, "Aref", "Ареф")
+	testWordTrasliteration(t, "Geta", "Джета")
+	testWordTrasliteration(t, "Grigore", "Григоре")
+	testWordTrasliteration(t, "Gong", "Гонг")
+	testWordTrasliteration(t, "Caragea", "Караджа")
+	testWordTrasliteration(t, "Borgia", "Борджа")
+	testWordTrasliteration(t, "George", "Джордже")
+	testWordTrasliteration(t, "Gheorghe", "Георге")
+	testWordTrasliteration(t, "Geoagiu", "Джоаджу")
+	testWordTrasliteration(t, "Mihu", "Миху")
+	testWordTrasliteration(t, "Irina", "Ирина")
+	testWordTrasliteration(t, "Matei", "Матей")
+	testWordTrasliteration(t, "Traian", "Траян")
+	testWordTrasliteration(t, "Demian", "Демьян")
+	testWordTrasliteration(t, "Sofia", "София")
+	testWordTrasliteration(t, "Iernut", "Ернут")
+	testWordTrasliteration(t, "Ploiești", "Плоешти")
+	testWordTrasliteration(t, "Miersig", "Мьерсиг")
+	testWordTrasliteration(t, "Ilie", "Илие")
+	testWordTrasliteration(t, "Cocoreștii Colț", "Кокорешти Колц")
+	testWordTrasliteration(t, "Întorsura", "Инторсура")
+	testWordTrasliteration(t, "Cîmpeni", "Кымпени")
+	testWordTrasliteration(t, "Ion", "Йон")
+	testWordTrasliteration(t, "Ghiolț", "Гьолц")
+	testWordTrasliteration(t, "Iuda", "Юда")
+	testWordTrasliteration(t, "Porumboiu", "Порумбоиу")
+	testWordTrasliteration(t, "Iuliuș", "Юльюш")
+	testWordTrasliteration(t, "Ovidiu", "Овидиу")
+	testWordTrasliteration(t, "Cujmir", "Кужмир")
+	testWordTrasliteration(t, "Virgil", "Вирджил")
+	testWordTrasliteration(t, "Manole", "Маноле")
+	testWordTrasliteration(t, "Nana", "Нана")
+	testWordTrasliteration(t, "Teofil", "Теофил")
+	testWordTrasliteration(t, "Petre", "Петре")
+	testWordTrasliteration(t, "Petru", "Петру")
+	testWordTrasliteration(t, "Sanda", "Санда")
+	testWordTrasliteration(t, "Sanda", "Санда")
+	testWordTrasliteration(t, "Izvoarele", "Извоареле")
+	testWordTrasliteration(t, "Șercaia", "Шеркаия")
+	testWordTrasliteration(t, "Tatu", "Тату")
+	testWordTrasliteration(t, "Cheț", "Кец")
+	testWordTrasliteration(t, "Ury", "Ури")
+	testWordTrasliteration(t, "Victor", "Виктор")
+	testWordTrasliteration(t, "Alexandru", "Александру")
+	testWordTrasliteration(t, "Hydrotechnica", "Хидротекника")
+	testWordTrasliteration(t, "Zoe", "Зое")
+}
+
+func testWordTrasliteration(t *testing.T, testString string, expected string) {
+	expected = strings.ToLower(expected)
+	transliterated := transliteration.TransliterateInRussian(testString)
+	if expected != transliterated {
+		t.Error(testString, "trasliterated into", transliterated, ",expected was ", expected)
+	}
+}
